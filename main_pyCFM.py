@@ -66,4 +66,4 @@ if __name__ == '__main__':
     #Test RMSE
     rmse = np.sqrt(np.mean((Ytest - Ytest_hat)**2))
 
-    print 'Test RMSE: %f' % rmse
+    print('Test RMSE: %f' % rmse)
