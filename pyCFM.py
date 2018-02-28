@@ -57,7 +57,7 @@ class CFM:
 
         #matvec function for eig
         def mv_eig(a):
-            return X.dot(X.transpose().dot(a)*tr_err)
+            return X.dot(X.transpose().dot(a)*tr_err) - ((X.multiply(X))*tr_err)*a
 
         eigcalc = LinearOperator((d,d),matvec=mv_eig,dtype='float64')
 
@@ -106,7 +106,7 @@ class CFM:
             fval[t] = np.sqrt(np.mean(tr_err**2))
 
             #fval: training RMSE
-            print 'Training RMSE: %f ' % fval[t]
+            print('Training RMSE: %f ' % fval[t])
 
     def predict(self,Xte):
         #Compute fQ (2-way factor)
